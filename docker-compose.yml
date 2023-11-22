@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  server:
+    build: ./server
+    restart: always
+    ports:
+      - "2023:3000"
+  
+  client:
+    build: ./client
+    restart: always
+    depends_on: 
+      - server
+
+    ports:
+      - "1992:2007"
